@@ -95,8 +95,11 @@ function FormsContainer({ isActive, setIsActive }) {
 >
         <form
           onSubmit={handleSignup}
-          className={`${isActive ? "hidden lg:block lg:opacity-0" : "block"} `}
-        >
+         className={`
+  ${isActive
+    ? "hidden lg:block lg:opacity-0 lg:pointer-events-none"
+    : "block lg:pointer-events-auto"}
+`}>
           <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/40 shadow-lg ">
             <h2 className="text-2xl text-[#0b2545] mb-1">
               Create Account
@@ -136,7 +139,11 @@ function FormsContainer({ isActive, setIsActive }) {
    
         <form
           onSubmit={handleSignin}
-          className={`${isActive ? "block lg:mb-[70%] lg:mr-[10%]" : "hidden lg:block lg:opacity-0"}`}
+className={`
+  ${isActive
+    ? "block lg:pointer-events-auto lg:mb-[70%] lg:mr-[10%]"
+    : "hidden lg:block lg:opacity-0 lg:pointer-events-none"}
+`}
         >
           <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/40 shadow-lg">
             <h2 className="text-2xl text-[#0b2545] mb-1">
@@ -184,7 +191,7 @@ function FormsContainer({ isActive, setIsActive }) {
 
 function Input({ icon, value, onChange, placeholder, type = "text" }) {
   return (
-    <div className="grid grid-cols-[40px_1fr] items-center px-3 my-2 rounded-xl bg-white/60 border border-white/60">
+    <div className="grid grid-cols-[40px_1fr] items-center px-3 my-2 rounded-xl bg-white/60 border border-white/60 z-10">
       <FontAwesomeIcon icon={icon} />
       <input
         type={type}

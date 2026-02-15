@@ -2,7 +2,7 @@ import React from "react";
 
 const SwitchFormsContainer = ({ handleClick, isActive }) => {
   return (
-    <section className="absolute inset-0 ">
+<section className="absolute inset-0 pointer-events-none">
 
       {/* ================= MOBILE & TABLET CTA ================= */}
       <div
