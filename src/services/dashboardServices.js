@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5148/api/jobs";
+const API_BASE_URL = "https://jobtracker-indol.vercel.app/api/jobs";
 
 export const getJobDashboardData = async (filters) => {
   const token = localStorage.getItem("jobtracker_token");

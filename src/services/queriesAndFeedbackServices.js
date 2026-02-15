@@ -1,8 +1,8 @@
 import { getToken } from "./authStorage";
-const API_URL = "http://localhost:5148/api/feedback/submit";
+const API_URL = "https://jobtracker-indol.vercel.app/api/feedback/submit";
 
 export const submitFeedback = async ({ comment }) => {
-   const token = getToken();
+  const token = getToken();
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {

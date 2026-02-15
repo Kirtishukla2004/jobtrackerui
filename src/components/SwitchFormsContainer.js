@@ -4,7 +4,6 @@ const SwitchFormsContainer = ({ handleClick, isActive }) => {
   return (
 <section className="absolute inset-0 pointer-events-none">
 
-      {/* ================= MOBILE & TABLET CTA ================= */}
       <div
         className="
           lg:hidden
@@ -15,7 +14,6 @@ const SwitchFormsContainer = ({ handleClick, isActive }) => {
         "
       >
         {!isActive ? (
-          /* SIGN IN CTA */
           <div className="text-center">
             <h3 className="text-xl font-extrabold text-blue-950">
               Already a member?
@@ -37,7 +35,6 @@ const SwitchFormsContainer = ({ handleClick, isActive }) => {
             </button>
           </div>
         ) : (
-          /* SIGN UP CTA */
           <div className="text-center">
             <h3 className="text-xl font-extrabold text-blue-950">
               Not a member?
@@ -61,10 +58,9 @@ const SwitchFormsContainer = ({ handleClick, isActive }) => {
         )}
       </div>
 
-      {/* ================= DESKTOP PANELS ================= */}
+      
       <div className="hidden lg:grid grid-cols-2 h-full">
 
-        {/* LEFT PANEL (SIGN IN) */}
         <div
           className={`
             flex flex-col items-end justify-around text-center
@@ -108,8 +104,6 @@ const SwitchFormsContainer = ({ handleClick, isActive }) => {
             `}
           />
         </div>
-
-        {/* RIGHT PANEL (SIGN UP) */}
         <div
           className={`
             flex flex-col items-start justify-around text-center
