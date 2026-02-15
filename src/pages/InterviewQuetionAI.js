@@ -28,17 +28,17 @@ function InterviewQuestionAI() {
     fetchCategoryDDL().then(setCategories);
   }, []);
 
-  useEffect(() => {
-    if (categoryId) {
-      fetchQuestionTypeDDL(categoryId).then(setQuestionTypes);
+ useEffect(() => {
+  if (categoryId) {
+    fetchQuestionTypeDDL(categoryId).then(setQuestionTypes);
 
-      const selectedCategory = categories.find(
-        (c) => c.categoryId === categoryId
-      );
-      setCategoryName(selectedCategory?.categoryName || "");
-      setQuestionType("");
-    }
-  }, [categoryId]);
+    const selectedCategory = categories.find(
+      (c) => c.categoryId === categoryId
+    );
+    setCategoryName(selectedCategory?.categoryName || "");
+    setQuestionType("");
+  }
+}, [categoryId, categories]);
 
   const handleGenerate = async () => {
     const payload = {
