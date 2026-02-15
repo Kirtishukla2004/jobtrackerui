@@ -1,0 +1,113 @@
+job-tracker-ui/
+│
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+│
+├── src/
+│   │
+│   ├── app/
+│   │   ├── App.js
+│   │   └── routes.js
+│   │
+│   ├── layouts/
+│   │   └── SidebarLayout/
+│   │       ├── SidebarLayout.js
+│   │       └── SidebarLayout.css
+│   │
+│   ├── navigation/
+│   │   ├── Sidebar/
+│   │   │   ├── Sidebar.js
+│   │   │   └── SidebarItem.js
+│   │   └── ProfileSummary/
+│   │       └── ProfileSummary.js
+│   │
+│   ├── pages/
+│   │   ├── Dashboard/
+│   │   │   └── DashboardPage.js
+│   │   │
+│   │   ├── Resume/
+│   │   │   └── ResumePage.js
+│   │   │
+│   │   ├── Insights/
+│   │   │   └── InsightsPage.js
+│   │   │
+│   │   └── Profile/
+│   │       └── ProfilePage.js
+│   │
+│   ├── features/
+│   │   │
+│   │   ├── auth/
+│   │   │   ├── LoginModal.js
+│   │   │   ├── LogoutHandler.js
+│   │   │   └── authService.js
+│   │   │
+│   │   ├── jobs/
+│   │   │   ├── JobFilters/
+│   │   │   │   └── JobFilters.js
+│   │   │   │
+│   │   │   ├── JobStats/
+│   │   │   │   └── JobStats.js
+│   │   │   │
+│   │   │   ├── JobList/
+│   │   │   │   ├── JobList.js
+│   │   │   │   └── JobCard.js
+│   │   │   │
+│   │   │   ├── AddJobModal/
+│   │   │   │   └── AddJobModal.js
+│   │   │   │
+│   │   │   ├── EditJobModal/
+│   │   │   │   └── EditJobModal.js
+│   │   │   │
+│   │   │   └── jobHelpers.js
+│   │   │
+│   │   ├── insights/
+│   │   │   └── InsightsPanel.js
+│   │   │
+│   │   └── profile/
+│   │       └── ProfileDetails.js
+│   │
+│   ├── components/
+│   │   ├── Button/
+│   │   │   └── Button.js
+│   │   │
+│   │   ├── Input/
+│   │   │   └── Input.js
+│   │   │
+│   │   ├── Modal/
+│   │   │   └── Modal.js
+│   │   │
+│   │   ├── Badge/
+│   │   │   └── StatusBadge.js
+│   │   │
+│   │   ├── Dropdown/
+│   │   │   └── Dropdown.js
+│   │   │
+│   │   └── Loader/
+│   │       └── Loader.js
+│   │
+│   ├── services/
+│   │   ├── jobService.js
+│   │   ├── authService.js
+│   │   └── profileService.js
+│   │
+│   ├── hooks/
+│   │   ├── useJobs.js
+│   │   ├── useAuth.js
+│   │   └── useDebounce.js
+│   │
+│   ├── utils/
+│   │   ├── constants.js
+│   │   ├── dateUtils.js
+│   │   └── statusUtils.js
+│   │
+│   ├── styles/
+│   │   └── globals.css
+│   │
+│   ├── index.js
+│   └── index.css
+│
+├── tailwind.config.js
+├── postcss.config.js
+├── package.json
+└── README.md
