@@ -52,7 +52,7 @@ function InterviewQuestionAI() {
 
     try {
       setLoading(true);
-      const response = await InterviewAiAnswerFetch(payload, token);
+      const response = await InterviewAiAnswerFetch(payload);
 
       setQuestions(response.questions);
     } catch (error) {
