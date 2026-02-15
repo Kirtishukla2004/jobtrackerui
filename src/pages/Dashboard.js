@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import AddJob from "../components/AddJob";
 import JobCard from "../components/JobCard";
 import StatCard from "../components/StatCard";
@@ -20,25 +20,29 @@ function Dashboard() {
 
   const totalPages = Math.ceil(totalCount / PAGE_SIZE);
 
-  const fetchJobs = async (appliedFilters, pageNo = page) => {
+ const fetchJobs = useCallback(
+  async (appliedFilters, pageNo = page) => {
     try {
       setLoading(true);
-      const data = await getJobDashboardData({appliedFilters,
+      const data = await getJobDashboardData({
+        appliedFilters,
         page: pageNo,
         pageSize: PAGE_SIZE,
       });
       setJobs(data.items);
-      console.log(jobs);
       setTotalCount(data.totalCount);
     } catch (err) {
       console.error("Failed to load jobs", err);
     } finally {
       setLoading(false);
     }
-  };
+  },
+  [page]
+);
+
   useEffect(() => {
-    fetchJobs(filters, page);
-  }, [filters, page]);
+  fetchJobs(filters, page);
+}, [filters, page, fetchJobs]);
 
   const handleFilterChange = (newFilters) => {
     setPage(1);
