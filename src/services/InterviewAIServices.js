@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://jobtracker-indol.vercel.app/api/interview";
+const API_BASE_URL = "https://jobtrackerapi-0pfl.onrender.com/api/interview";
 const token = localStorage.getItem("jobtracker_token");
 export const InterviewAiAnswerFetch = async (interviewData) => {
   try {

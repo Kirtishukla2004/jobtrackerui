@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://jobtracker-indol.vercel.app/api/auth";
+const API_BASE_URL = "https://jobtrackerapi-0pfl.onrender.com/api/auth";
 const handleResponse = async (response) => {
   const text = await response.text(); 
 
