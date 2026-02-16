@@ -20,15 +20,16 @@ function Dashboard() {
 
   const totalPages = Math.ceil(totalCount / PAGE_SIZE);
 
- const fetchJobs = useCallback(
-  async (appliedFilters, pageNo = page) => {
+  const fetchJobs = useCallback(async (appliedFilters = {}, pageNo = 1) => {
     try {
       setLoading(true);
+
       const data = await getJobDashboardData({
-        appliedFilters,
+        ...appliedFilters,
         page: pageNo,
         pageSize: PAGE_SIZE,
       });
+
       setJobs(data.items);
       setTotalCount(data.totalCount);
     } catch (err) {
@@ -36,13 +37,11 @@ function Dashboard() {
     } finally {
       setLoading(false);
     }
-  },
-  [page]
-);
+  }, []);
 
   useEffect(() => {
-  fetchJobs(filters, page);
-}, [filters, page, fetchJobs]);
+    fetchJobs(filters, page);
+  }, [filters, page, fetchJobs]);
 
   const handleFilterChange = (newFilters) => {
     setPage(1);
@@ -100,20 +99,45 @@ function Dashboard() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-[25px] font-semibold text-[#303b51]">
-          Dashboard
-        </h1>
-        <button onClick={() => {setEditJob(null); setOpen(true);}} className="rounded-md bg-[#3b6fe8] px-4 py-2 text-sm text-white">
+        <h1 className="text-[25px] font-semibold text-[#303b51]">Dashboard</h1>
+        <button
+          onClick={() => {
+            setEditJob(null);
+            setOpen(true);
+          }}
+          className="rounded-md bg-[#3b6fe8] px-4 py-2 text-sm text-white"
+        >
           + Add Job
         </button>
       </div>
 
-      <AddJob open={open} jobToEdit={editJob} onClose={() => { setOpen(false); setEditJob(null);}} onJobAdded={() => fetchJobs(filters, page)}/>
+      <AddJob
+        open={open}
+        jobToEdit={editJob}
+        onClose={() => {
+          setOpen(false);
+          setEditJob(null);
+        }}
+        onJobAdded={() => fetchJobs(filters, page)}
+      />
       <FilterJob onFilter={handleFilterChange} />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {Object.entries(statusCounts).map(([status, count]) => (
-          <StatCard key={status} title={status} count={count} color={status.toLowerCase().includes("offer")? "green": status.toLowerCase().includes("interview")? "yellow": status.toLowerCase().includes("reject")? "red": "blue"}/>
+          <StatCard
+            key={status}
+            title={status}
+            count={count}
+            color={
+              status.toLowerCase().includes("offer")
+                ? "green"
+                : status.toLowerCase().includes("interview")
+                  ? "yellow"
+                  : status.toLowerCase().includes("reject")
+                    ? "red"
+                    : "blue"
+            }
+          />
         ))}
       </div>
       {loading ? (
@@ -133,7 +157,10 @@ function Dashboard() {
                 platformAppliedOn={job.platformAppliedOn}
                 contactPerson={job.contactPerson}
                 contactInfo={job.contactInfo}
-                onEdit={() => {setEditJob(job); setOpen(true);}}
+                onEdit={() => {
+                  setEditJob(job);
+                  setOpen(true);
+                }}
                 onDelete={() => handleDelete(job.jobId)}
               />
             ))}
@@ -141,13 +168,21 @@ function Dashboard() {
 
           {totalPages > 1 && (
             <div className="flex justify-center items-center gap-4 mt-6">
-              <button disabled={page === 1} onClick={() => setPage((p) => p - 1)} className="px-3 py-1 border rounded disabled:opacity-40">
+              <button
+                disabled={page === 1}
+                onClick={() => setPage((p) => p - 1)}
+                className="px-3 py-1 border rounded disabled:opacity-40"
+              >
                 Prev
               </button>
               <span className="text-sm text-gray-600">
                 Page {page} of {totalPages}
               </span>
-              <button disabled={page === totalPages} onClick={() => setPage((p) => p + 1)} className="px-3 py-1 border rounded disabled:opacity-40">
+              <button
+                disabled={page === totalPages}
+                onClick={() => setPage((p) => p + 1)}
+                className="px-3 py-1 border rounded disabled:opacity-40"
+              >
                 Next
               </button>
             </div>
