@@ -31,7 +31,7 @@ export const isLoggedIn = () => {
 export const getUser = () => {
   const userStr = localStorage.getItem(USER_KEY);
   if (!userStr) return null;
- console.log(userStr);
+ //console.log(userStr);
   try {
     return JSON.parse(userStr);
   } catch {

@@ -11,7 +11,7 @@ export const submitFeedback = async ({ comment }) => {
   });
 
   const text = await response.text();
-  console.log(text);
+  //console.log(text);
   let data;
   try {
     data = JSON.parse(text);

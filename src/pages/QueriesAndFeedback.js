@@ -21,7 +21,7 @@ function QueriesAndFeedback() {
 
     try {
       const response = await submitFeedback({ comment });
-     console.log(response);
+     //console.log(response);
       if (!response.success) {
         setError(response.message);
         return;

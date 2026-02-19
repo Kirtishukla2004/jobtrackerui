@@ -38,7 +38,7 @@ export const fetchCategoryDDL = async () => {
       throw new Error("Failed to fetch categories");
     }
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
     return data;
   } catch (error) {
     throw new Error(
@@ -66,7 +66,7 @@ export const fetchQuestionTypeDDL = async (categoryId) => {
       if (response.status === 204) return []; 
       throw new Error("Failed to fetch question types");
     }  const data = await response.json();
-    console.log(data);
+   // console.log(data);
     return data;
   } catch (error) {
     throw new Error(
