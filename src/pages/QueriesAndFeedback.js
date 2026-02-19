@@ -21,7 +21,7 @@ function QueriesAndFeedback() {
 
     try {
       const response = await submitFeedback({ comment });
-
+     console.log(response);
       if (!response.success) {
         setError(response.message);
         return;
@@ -38,8 +38,7 @@ function QueriesAndFeedback() {
 
   return (
     <div className="w-full px-4 py-6 sm:py-10 bg-gray-50 min-h-[calc(100vh-64px)]">
-      
-      {/* Page header */}
+ 
       <div className="max-w-3xl mx-auto mb-6">
         <h1 className="text-xl sm:text-2xl font-semibold text-gray-800">
           Queries & Feedback
@@ -49,7 +48,6 @@ function QueriesAndFeedback() {
         </p>
       </div>
 
-      {/* Card */}
       <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-sm p-4 sm:p-6">
         <form onSubmit={handleSubmit} className="space-y-4">
           

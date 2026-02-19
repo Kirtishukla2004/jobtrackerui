@@ -2,7 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SidebarLayout from "./layouts/SidebarLayout/SidebarLayout";
 import Dashboard from "./pages/Dashboard";
-import InterviewQuetionAI from "./pages/InterviewQuetionAI";
+import JobMentor from "./pages/JobMentor";
 import Resume from "./pages/Resume";
 import QueriesAndFeedback from "./pages/QueriesAndFeedback";
 import ProtectedRoute from "./utils/ProtectedRoutes";
@@ -27,7 +27,7 @@ function App() {
       children: [
         { index: true, element: <Dashboard /> },
         { path: "resume", element: <Resume /> },
-        { path: "interviews", element: <InterviewQuetionAI /> },
+        { path: "jobmentor", element: <JobMentor /> },
         { path: "queries", element: <QueriesAndFeedback /> },
       ],
     },

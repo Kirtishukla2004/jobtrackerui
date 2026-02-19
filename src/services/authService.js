@@ -1,10 +1,11 @@
-const API_BASE_URL = "https://jobtrackerapi-0pfl.onrender.com/api/auth";
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL_AUTH;
 const handleResponse = async (response) => {
   const text = await response.text(); 
 
   let data;
   try {data = JSON.parse(text);
-  } catch {data = { message: text }; }
+  } catch (error) {data = { message: text }; }
 
   if (!response.ok) {
     return {success: false,message: data.message || "Something went wrong",
@@ -55,17 +56,18 @@ export const forgotPassword = async (email) => {
   });
 };
 
-export const resetPassword = async (token, Password) => {
+export const resetPassword = async (token, password) => {
   const res = await fetch(`${API_BASE_URL}/resetpassword`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       token,
-      Password,
+      password,
     }),
   });
 
   if (!res.ok) {
-    throw new Error("Reset failed");
+    const msg = await res.text();
+    throw new Error(msg || "Reset failed");
   }
 };

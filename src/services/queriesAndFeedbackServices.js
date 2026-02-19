@@ -1,8 +1,8 @@
 import { getToken } from "./authStorage";
-const API_URL = "https://jobtrackerapi-0pfl.onrender.com/api/feedback/submit";
-
+const token = localStorage.getItem("jobtracker_token");
+const API_URL = process.env.REACT_APP_API_BASE_URL_FEEDBACK;
 export const submitFeedback = async ({ comment }) => {
-  const token = getToken();
+  
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {
@@ -13,7 +13,7 @@ export const submitFeedback = async ({ comment }) => {
   });
 
   const text = await response.text();
-
+  console.log(text);
   let data;
   try {
     data = JSON.parse(text);

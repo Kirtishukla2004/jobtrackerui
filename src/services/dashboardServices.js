@@ -1,5 +1,4 @@
-const API_BASE_URL = "https://jobtrackerapi-0pfl.onrender.com/api/jobs";
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL_JOBS;
 export const getJobDashboardData = async (filters) => {
   const token = localStorage.getItem("jobtracker_token");
 

@@ -21,7 +21,7 @@ function SidebarLayout() {
   const menuItems = [
     { label: "Dashboard", path: "/", icon: LayoutDashboard },
    // { label: "Resume", path: "/resume", icon: FileText },
-    { label: "Interview Insights", path: "/interviews", icon: Lightbulb },
+    { label: "Job Mentor", path: "/jobmentor", icon: Lightbulb },
     { label: "Queries & Feedback", path: "/queries", icon: MessageSquare },
   ];
 
@@ -39,7 +39,7 @@ function SidebarLayout() {
         />
       )}
 
-      <aside className={`fixed lg:static inset-y-0 left-0 z-50 w-[300px] bg-gradient-to-b from-[#3a5fa0] via-[#2f4f8f] to-[#253e73] text-white flex flex-col transform    transition-transform duration-300
+      <aside className={`fixed lg:static inset-y-0 left-0 z-50 w-[350px] bg-gradient-to-b from-[#3a5fa0] via-[#2f4f8f] to-[#253e73] text-white flex flex-col transform    transition-transform duration-300
       ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}>
         <div className="relative flex items-center gap-4 p-6 border-b border-white/10">
           <button onClick={() => setSidebarOpen(false)} className="absolute right-4 top-4 lg:hidden">

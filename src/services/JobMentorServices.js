@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://jobtrackerapi-0pfl.onrender.com/api/interview";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL_AIAGENT;
 const token = localStorage.getItem("jobtracker_token");
 export const InterviewAiAnswerFetch = async (interviewData) => {
   try {
@@ -15,7 +15,7 @@ export const InterviewAiAnswerFetch = async (interviewData) => {
       const errorText = await response.text();
       throw new Error(errorText || "Failed to submit interview data");
     }
-
+    
     return await response.json();
   } catch (error) {
     throw new Error(
@@ -36,8 +36,9 @@ export const fetchCategoryDDL = async () => {
     if (!response.ok) {
       throw new Error("Failed to fetch categories");
     }
-
-    return await response.json();
+    const data = await response.json();
+    console.log(data);
+    return data;
   } catch (error) {
     throw new Error(
       error.message || "Unable to fetch categories. Please try again.",
@@ -61,11 +62,11 @@ export const fetchQuestionTypeDDL = async (categoryId) => {
     );
 
     if (!response.ok) {
-      if (response.status === 204) return []; // NoContent
+      if (response.status === 204) return []; 
       throw new Error("Failed to fetch question types");
-    }
-
-    return await response.json();
+    }  const data = await response.json();
+    console.log(data);
+    return data;
   } catch (error) {
     throw new Error(
       error.message || "Unable to fetch question types. Please try again.",
