@@ -1,6 +1,7 @@
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL_AIAGENT;
-const token = localStorage.getItem("jobtracker_token");
+
 export const InterviewAiAnswerFetch = async (interviewData) => {
+  const token = localStorage.getItem("jobtracker_token");
   try {
     const response = await fetch(`${API_BASE_URL}/generate`, {
       method: "POST",
