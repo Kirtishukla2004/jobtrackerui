@@ -1,4 +1,3 @@
-import { getToken } from "./authStorage";
 const token = localStorage.getItem("jobtracker_token");
 const API_URL = process.env.REACT_APP_API_BASE_URL_FEEDBACK;
 export const submitFeedback = async ({ comment }) => {
